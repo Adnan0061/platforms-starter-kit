@@ -10,7 +10,10 @@ export async function generateMetadata({
 }: {
   params: { domain: string; slug: string };
 }) {
-  const { domain, slug } = params;
+  const { domain: paramDomain, slug: paramSlug } = params;
+  const domain = decodeURIComponent(paramDomain);
+  const slug = decodeURIComponent(paramSlug);
+
   const data = await getPostData(domain, slug);
   if (!data) {
     return null;
@@ -38,7 +41,10 @@ export default async function SitePostPage({
 }: {
   params: { domain: string; slug: string };
 }) {
-  const { domain, slug } = params;
+  const { domain: paramDomain, slug: paramSlug } = params;
+  const domain = decodeURIComponent(paramDomain);
+  const slug = decodeURIComponent(paramSlug);
+
   const data = await getPostData(domain, slug);
 
   if (!data) {

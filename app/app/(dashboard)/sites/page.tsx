@@ -5,6 +5,7 @@ import CreateSiteButton from "@/components/create-site-button";
 import CreateSiteModal from "@/components/modal/create-site";
 
 export default function AllSites({ params }: { params: { id: string } }) {
+  const id = decodeURIComponent(params.id);
   return (
     <div className="flex max-w-screen-xl flex-col space-y-12 p-8">
       <div className="flex flex-col space-y-6">
@@ -26,7 +27,7 @@ export default function AllSites({ params }: { params: { id: string } }) {
           }
         >
           {/* @ts-expect-error Server Component */}
-          <Sites siteId={params.id} />
+          <Sites siteId={id} />
         </Suspense>
       </div>
     </div>
