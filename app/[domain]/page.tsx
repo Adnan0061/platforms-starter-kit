@@ -20,6 +20,7 @@ export default async function SiteHomePage({
   if (!data) {
     notFound();
   }
+  console.log("data", data, "posts", posts);
 
   return (
     <>
